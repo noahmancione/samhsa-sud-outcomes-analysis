@@ -1,42 +1,36 @@
 # SUD Treatment Outcomes Analysis
-### SAMHSA Treatment Episode Data Set — Discharges (TEDS-D) 2023
+### SAMHSA TEDS-D 2023 | Python + Tableau
 
-## Overview
-This project analyzes 1,474,025 substance use disorder treatment discharge records 
-from SAMHSA's 2023 TEDS-D dataset to identify patterns in treatment completion rates 
-across substance type, age, gender, and length of stay. Findings are intended to 
-support clinical leadership decision-making in SUD treatment settings.
+I built this project to explore treatment outcome patterns across 1.47 million 
+substance use disorder discharge records from SAMHSA's 2023 TEDS-D dataset. 
+The goal was to practice working with large real-world healthcare data and find 
+insights that would be meaningful to a clinical or operational team.
 
-**Tools Used:** Python (Pandas, NumPy), Tableau Public  
-**Data Source:** SAMHSA TEDS-D 2023 — publicly available at samhsa.gov  
-**Interactive Dashboard:** [View Live Dashboard](https://public.tableau.com/app/profile/noah.mancione/viz/samhsa_sud_outcomes/Dashboard1)
+**Tools:** Python (Pandas, NumPy), Tableau Public  
+**Data:** SAMHSA TEDS-D 2023 — samhsa.gov  
+**Dashboard:** [View Live on Tableau Public](https://public.tableau.com/app/profile/noah.mancione/viz/samhsa_sud_outcomes/Dashboard1)
 
 ## Key Findings
 
-### 1. Treatment Completion Rates Vary Significantly by Substance
-Opioid-related substances consistently show the lowest completion rates — heroin at 24.4%, 
-other opiates at 23.0%, and methadone at just 14.4%. Alcohol treatment has the highest 
-completion rate at 49.5%. Methamphetamine, the second most common substance in the dataset 
-with 180,249 episodes, shows a below-average completion rate of 34.0%, representing a 
-significant public health concern.
+The overall treatment completion rate across all 1.47 million episodes was 42.6%. 
+A few patterns stood out worth highlighting.
 
-### 2. Gender Gap in Completion Rates
-Female patients complete treatment at 41.5% compared to 43.2% for male patients. 
-While the gap is modest, it is statistically meaningful across nearly 1.5 million records 
-and may reflect systemic barriers facing women in treatment such as childcare responsibilities 
-and trauma history rather than differences in motivation or engagement.
+Opioid-related substances had by far the lowest completion rates: heroin at 24.4%, 
+other opiates at 23.0%, and methadone at 14.4%. This is roughly half the rate of alcohol 
+treatment at 49.5%. Methamphetamine stood out as a particular concern given its volume: 
+180,000+ episodes with only a 34% completion rate.
 
-### 3. Age Shows a U-Shaped Completion Pattern
-Adolescents (ages 12-14) have the lowest completion rate at 35.3%. Rates rise sharply 
-for young adults (18-20 at 47.0%), dip through middle age (30-44 averaging ~41%), 
-then climb steadily to a peak of 56.2% for patients 65 and older. Middle-aged patients 
-represent the highest volume group and fall consistently below the overall average of 42.6%.
+Completion rates by age follow a U-shape that I didn't expect when creating this project. Adolescents 
+(12-14) had the lowest rate at 35.3%, young adults (18-20) peaked at 47%, middle-aged 
+patients clustered around 41%, and patients 65+ had the highest rate at 56.2%. The 
+older adult finding was the most surprising result in the dataset.
 
-### 4. Length of Stay Strongly Associated with Completion
-Patients who complete treatment have a median length of stay of 28 days compared to 
-17 days for non-completers — an 11-day gap suggesting early dropout is a primary driver 
-of non-completion. Retention interventions focused on the first two weeks may have the 
-highest impact on overall completion ra
+The gender gap was small but consistent — males at 43.2% vs females at 41.5% across 
+nearly 1.5 million records. At that sample size the difference is real, and likely 
+reflects barriers outside of motivation or engagement.
+
+Patients who completed treatment had a median stay of 28 days vs 17 days for 
+non-completers. That 11-day gap suggests the first two weeks are where most dropout happens.
 
 ## Repository Structure
 ```
@@ -52,12 +46,8 @@ samhsa_data_analysis/
 └── README.md
 ```
 
-## Data Notes
-- Dataset contains 1,474,025 discharge records from 2023
-- SAMHSA missing value codes (-9) replaced with NaN prior to analysis
-- Columns with >50% missing data excluded from analysis
-- Raw data file not tracked in git due to size — download from samhsa.gov
-
-## Disclaimer
-This analysis is conducted for portfolio and educational purposes using 
-publicly available de-identified data from SAMHSA.
+## Notes
+- SAMHSA missing value codes (-9) replaced with NaN before analysis
+- Columns with >50% missing data were excluded
+- Raw data not tracked in git due to file size — download from samhsa.gov
+- Analysis is for portfolio purposes using publicly available de-identified data
