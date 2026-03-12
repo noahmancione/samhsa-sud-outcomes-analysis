@@ -1,0 +1,24 @@
+# Virtual environment
+.venv/
+
+# Raw data files (too large for GitHub)
+data/tedsd_puf_2023.csv
+data/tedsd_clean.csv
+
+# Mac system files
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Tableau working files
+*.twb
+*.twbx
