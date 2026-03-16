@@ -1,12 +1,12 @@
 # SUD Treatment Outcomes Analysis
-### SAMHSA TEDS-D 2023 | Python + Tableau
+### SAMHSA TEDS-D 2023 | Python + PostgreSQL + Tableau
 
 I built this project to explore treatment outcome patterns across 1.47 million 
 substance use disorder discharge records from SAMHSA's 2023 TEDS-D dataset. 
 The goal was to practice working with large real-world healthcare data and find 
 insights that would be meaningful to a clinical or operational team.
 
-**Tools:** Python (Pandas, NumPy), Tableau Public  
+**Tools:** Python (Pandas, NumPy), PostgreSQL, Tableau Public  
 **Data:** SAMHSA TEDS-D 2023 — samhsa.gov  
 **Dashboard:** [View Live on Tableau Public](https://public.tableau.com/app/profile/noah.mancione/viz/samhsa_sud_outcomes/Dashboard1)
 
@@ -32,6 +32,21 @@ reflects barriers outside of motivation or engagement.
 Patients who completed treatment had a median stay of 28 days vs 17 days for 
 non-completers. That 11-day gap suggests the first two weeks are where most dropout happens.
 
+## SQL Analysis
+
+The `sql_analysis/` folder contains six PostgreSQL query files that replicate and 
+extend the Python analysis. Queries range from basic aggregations to CTEs and window 
+functions. The dataset was loaded into a local PostgreSQL 18 database for this portion 
+of the project.
+
+- `01_overview.sql` — dataset summary and discharge reason breakdown
+- `02_completion_by_substance.sql` — completion rates by primary substance
+- `03_completion_by_age.sql` — completion rates by age group
+- `04_completion_by_gender.sql` — completion rates by gender
+- `05_length_of_stay.sql` — median and mean LOS by completion status
+- `06_advanced_queries.sql` — CTEs and subqueries identifying high-volume, 
+below-average substances and above-average age groups
+
 ## Repository Structure
 ```
 samhsa_data_analysis/
@@ -42,6 +57,7 @@ samhsa_data_analysis/
 ├── notebooks/
 │   ├── 01_data_cleaning.ipynb    ← data loading, cleaning, decoding
 │   └── 02_analysis.ipynb         ← completion rate analysis
+├── sql_analysis/                 ← PostgreSQL query files
 ├── visuals/                      ← exported chart screenshots
 └── README.md
 ```
